@@ -1,5 +1,10 @@
+import { Box, Button } from "@chakra-ui/react";
+import { InputForm } from "../components/InputForm";
+
 export default function Home() {
   return (
-    <div>test</div>
+    <Box m={10}>
+      <InputForm />
+    </Box>
   )
 }
