@@ -27,7 +27,7 @@ export const InputForm = () => {
           />
         </FormControl>
       </form>
-      <TaskList tasks={tasks} />
+      <TaskList tasks={tasks} setTasks={setTasks}/>
     </>
   )
 }
