@@ -1,13 +1,12 @@
 import { List, ListItem } from "@chakra-ui/react"
 import { CommonButton } from "./CommonButton"
-import { Dispatch, SetStateAction } from 'react'
+import { useRecoilValue } from "recoil"
+import { tasksState } from "../src/atoms/tasks"
 
-type Props = {
-  tasks: string[]
-  setTasks: Dispatch<SetStateAction<string[]>>
-}
 
-export const TaskList = ({ tasks, setTasks }: Props) => {
+
+export const TaskList = () => {
+  const tasks = useRecoilValue(tasksState)
   return (
     <List>
       {tasks.map((task, index) => (
@@ -16,9 +15,7 @@ export const TaskList = ({ tasks, setTasks }: Props) => {
           <CommonButton
             text="削除"
             color="blue"
-            setTasks={setTasks}
             index={index}
-            tasks={tasks}
           />
         </ListItem>
 

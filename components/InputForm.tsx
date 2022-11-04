@@ -1,14 +1,15 @@
 import { Input, FormControl, FormLabel } from "@chakra-ui/react"
-import { useState } from "react"
 import { TaskList } from "./TaskList"
+import { useRecoilState } from "recoil"
+import { taskState } from "../src/atoms/task"
+import { tasksState } from "../src/atoms/tasks"
 
 export const InputForm = () => {
-  const [taskName, setTaskName] = useState('')
-  const [tasks, setTasks] = useState<string[]>([])
+  const [taskName, setTaskName] = useRecoilState(taskState)
+  const [tasks, setTasks] = useRecoilState(tasksState)
 
   const addTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(taskName)
     setTasks([...tasks, taskName])
     setTaskName('')
   }
@@ -27,7 +28,7 @@ export const InputForm = () => {
           />
         </FormControl>
       </form>
-      <TaskList tasks={tasks} setTasks={setTasks}/>
+      <TaskList />
     </>
   )
 }
