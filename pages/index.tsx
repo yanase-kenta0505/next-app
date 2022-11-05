@@ -1,4 +1,4 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { InputForm } from "../components/InputForm";
 
 export default function Home() {

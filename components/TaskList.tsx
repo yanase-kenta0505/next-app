@@ -1,18 +1,24 @@
-import { List, ListItem } from "@chakra-ui/react"
-import { CommonButton } from "./CommonButton"
+import { List, ListItem, Text } from "@chakra-ui/react"
 import { useRecoilValue } from "recoil"
-import { tasksState } from "../src/atoms/tasks"
+import { filteredTasksState } from "../src/selector/filteredTasks"
+import { CompleteBtn } from "./CompleteBtn"
+import { DeleteBtn } from "./DeleteBtn"
 
 
 
 export const TaskList = () => {
-  const tasks = useRecoilValue(tasksState)
+  const tasks = useRecoilValue(filteredTasksState)
   return (
     <List>
       {tasks.map((task, index) => (
         <ListItem key={index}>
-          {task.taskName}
-          <CommonButton
+          <Text style={{textDecoration: task.isDone ? 'line-through' : 'none'}}>{task.taskName}</Text>
+          <CompleteBtn
+            text="完了"
+            color="green"
+            index={index}
+          />
+          <DeleteBtn
             text="削除"
             color="blue"
             index={index}

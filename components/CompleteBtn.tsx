@@ -10,20 +10,19 @@ type Props = {
   index: number
 }
 
-export const CommonButton = ({ text, color, index }: Props) => {
+export const CompleteBtn = ({ text, color, index }: Props) => {
   const [tasks, setTasks] = useRecoilState(tasksState)
-  const deleteTask = () => {
-    const newTasks = tasks.filter((_, currentIndex) => currentIndex !== index)
-    setTasks(newTasks)
+  const complete = () => {
+    setTasks((prevState) => prevState.map((value, currentIndex) => (currentIndex === index
+      ? { taskName: value.taskName, isDone: true }
+      : value)))
   }
-
-  const task = useRecoilValue(taskState)
   return (
     <Button
       colorScheme={color}
       size='sm'
       m={5}
-      onClick={deleteTask}
+      onClick={complete}
     >
       {text}
     </Button>
