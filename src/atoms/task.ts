@@ -1,6 +1,6 @@
-import { atom } from "recoil";
+import { atom } from "recoil"
 
-export const taskState = atom({
+export const taskState = atom<string>({
   key: 'taskState',
   default: ''
 })

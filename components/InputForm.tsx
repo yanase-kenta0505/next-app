@@ -10,7 +10,15 @@ export const InputForm = () => {
 
   const addTask = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setTasks([...tasks, taskName])
+    setTasks(
+      [
+        ...tasks,
+        {
+          taskName: taskName,
+          isDone: false
+        }
+      ]
+    )
     setTaskName('')
   }
   return (

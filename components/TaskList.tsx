@@ -11,7 +11,7 @@ export const TaskList = () => {
     <List>
       {tasks.map((task, index) => (
         <ListItem key={index}>
-          {task}
+          {task.taskName}
           <CommonButton
             text="削除"
             color="blue"
