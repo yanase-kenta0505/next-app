@@ -3,6 +3,7 @@ import { TaskList } from "./TaskList"
 import { useRecoilState } from "recoil"
 import { taskState } from "../src/atoms/task"
 import { tasksState } from "../src/atoms/tasks"
+import { StatusBtn } from "./StatusBtn"
 
 export const InputForm = () => {
   const [taskName, setTaskName] = useRecoilState(taskState)
@@ -34,6 +35,7 @@ export const InputForm = () => {
             border='3px solid gray'
             value={taskName}
           />
+          <StatusBtn />
         </FormControl>
       </form>
       <TaskList />
